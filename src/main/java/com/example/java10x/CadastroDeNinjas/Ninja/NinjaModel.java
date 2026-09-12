@@ -1,4 +1,4 @@
-package com.example.java10x.CadastroDeNinjas;
+package com.example.java10x.CadastroDeNinjas.Ninja;
 
 import jakarta.persistence.*;
 import lombok.*;
