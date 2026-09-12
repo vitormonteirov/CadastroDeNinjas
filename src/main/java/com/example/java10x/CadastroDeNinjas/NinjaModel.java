@@ -8,6 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
+@Table (name = "tb_cadastro")
 public class NinjaModel {
 
     @Id
