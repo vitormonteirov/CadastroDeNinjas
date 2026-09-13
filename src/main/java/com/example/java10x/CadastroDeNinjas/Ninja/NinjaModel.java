@@ -1,13 +1,15 @@
 package com.example.java10x.CadastroDeNinjas.Ninja;
 
+import com.example.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
+@Data
 @ToString
 @Table (name = "tb_cadastro")
 public class NinjaModel {
@@ -21,4 +23,8 @@ public class NinjaModel {
     private String rank;
     private String skill;
     private int idade;
+
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 }
