@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ## Environment Variable ##
-.env.properties
+.env
