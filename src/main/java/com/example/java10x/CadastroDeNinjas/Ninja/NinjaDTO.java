@@ -8,11 +8,11 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class NinjaDTO {
-    private long id;
+    private Long id;
     private String nome;
     private String email;
     private String rank;
     private String skill;
-    private int idade;
+    private Integer idade;
     private MissoesModel missoes;
 }

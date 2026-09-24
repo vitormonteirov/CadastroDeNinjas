@@ -15,7 +15,7 @@ public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "nomeMissao")
     private String nomeMissao;

@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class MissoesDTO {
 
-    private long id;
+    private Long id;
     private String nomeMissao;
     private String dificuldade;
     private List<NinjaDTO> ninjas;
