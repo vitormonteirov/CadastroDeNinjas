@@ -1,5 +1,6 @@
 package com.example.java10x.CadastroDeNinjas.Ninja;
 
+import jakarta.persistence.Id;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.*;
@@ -27,6 +28,11 @@ public class NinjaService {
             return ninjas.stream()
                     .map(ninjaMapper::map)
                     .collect(Collectors.toList());
+        }
+
+        public NinjaDTO listarByID (Long id) {
+            Optional<NinjaModel> ninjaID = ninjaRepository.findById(id);
+            return ninjaID.map(ninjaMapper::map).orElse(null);
         }
     }
 
