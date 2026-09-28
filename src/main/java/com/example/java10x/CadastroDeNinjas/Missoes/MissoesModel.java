@@ -1,6 +1,7 @@
 package com.example.java10x.CadastroDeNinjas.Missoes;
 
 import com.example.java10x.CadastroDeNinjas.Ninja.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.*;
@@ -24,5 +25,6 @@ public class MissoesModel {
     private String dificuldade;
 
     @OneToMany(mappedBy = "missoes")
+    @JsonIgnore
     private List<NinjaModel> ninja;
 }
