@@ -1,5 +1,6 @@
 package com.example.java10x.CadastroDeNinjas.Ninja;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +11,7 @@ import java.util.List;
 @RequestMapping("ninja")
 public class NinjaController {
 
-    private NinjaService ninjaService;
+    private final NinjaService ninjaService;
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
@@ -35,9 +36,14 @@ public class NinjaController {
     }
 
     //Mostrar ninjas por ID (READ)
-    @GetMapping("/listaID")
-    public String listarID() {
-        return "Listando ninjas por ID";
+    @GetMapping("/listarID/{id}")
+    public ResponseEntity<?> listarID(@PathVariable Long id) {
+        NinjaDTO ninjaByID = ninjaService.listarByID(id);
+        if (ninjaByID != null) {
+            return ResponseEntity.ok(ninjaByID);
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("Ninja com o ID " + id + " não foi encontrado.");
     }
 
     //Alterar dados do ninja (UPDATE)
