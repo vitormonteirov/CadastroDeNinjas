@@ -8,5 +8,6 @@ public record NinjaDTO(Long id,
                        String rank,
                        String skill,
                        Integer idade,
+                       String arma,
                        MissoesModel missoes){}
 
