@@ -14,6 +14,7 @@ public class NinjaMapper {
         ninjaModel.setRank(ninjaDTO.rank());
         ninjaModel.setSkill(ninjaDTO.skill());
         ninjaModel.setIdade(ninjaDTO.idade());
+        ninjaModel.setArma(ninjaDTO.arma());
         ninjaModel.setMissoes(ninjaDTO.missoes());
 
         return ninjaModel;
@@ -26,7 +27,9 @@ public class NinjaMapper {
                 ninjaModel.getRank(),
                 ninjaModel.getSkill(),
                 ninjaModel.getIdade(),
+                ninjaModel.getArma(),
                 ninjaModel.getMissoes());
+
     }
 
 }

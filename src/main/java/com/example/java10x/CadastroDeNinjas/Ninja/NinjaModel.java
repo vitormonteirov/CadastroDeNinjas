@@ -33,6 +33,9 @@ public class NinjaModel {
     @Column(name = "idade")
     private Integer idade;
 
+    @Column(name = "arma")
+    private String arma;
+
     @ManyToOne
     @JoinColumn(name = "missoes_id")
     private MissoesModel missoes;
