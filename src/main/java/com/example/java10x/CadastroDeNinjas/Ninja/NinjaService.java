@@ -45,6 +45,16 @@ public class NinjaService {
             ninjaRepository.deleteById(id);
 
         }
+        public NinjaDTO atualizarNinja (Long id, NinjaDTO ninjaDTO) {
+            Optional<NinjaModel> ninjaExist = ninjaRepository.findById(id);
+            if (ninjaExist.isPresent()) {
+                NinjaModel ninjaAtualizado = ninjaMapper.map(ninjaDTO);
+                ninjaAtualizado.setId(id);
+                NinjaModel ninjaSalvo = ninjaRepository.save(ninjaAtualizado);
+                return ninjaMapper.map(ninjaSalvo);
+            }
+            return null;
+        }
 
     }
 
