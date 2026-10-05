@@ -3,8 +3,6 @@ package com.example.java10x.CadastroDeNinjas.Ninja;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -50,8 +48,8 @@ public class NinjaController {
 
     //Alterar dados do ninja (UPDATE)
     @PutMapping("/attNinja/{id}")
-    public NinjaDTO atualizarNinja(@PathVariable Long id, @RequestBody NinjaDTO ninja) {
-        return ninjaService.atualizarNinja(id, ninja);
+    public ResponseEntity<NinjaDTO> atualizarNinja(@PathVariable Long id, @RequestBody NinjaDTO ninja) {
+        return ResponseEntity.ok(ninjaService.atualizarNinja(id, ninja));
     }
 
     //Deletar Ninja (DELETE)
