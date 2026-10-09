@@ -54,8 +54,15 @@ public class NinjaController {
 
     //Deletar Ninja (DELETE)
     @DeleteMapping("/deletar/{id}")
-    public void deletarNinjaPorId(@PathVariable Long id) {
-        ninjaService.deletarNinjaPorID(id);
+    public ResponseEntity<String> deletarNinjaPorId(@PathVariable Long id) {
+        if (ninjaService.listarByID(id) != null) {
+            ninjaService.deletarNinjaPorID(id);
+            return ResponseEntity.ok("Ninja deletado com sucesso.");
+        }
+        else  {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Ninja de ID "+ id + " não encontrado.");
+            }
     }
 }
 
