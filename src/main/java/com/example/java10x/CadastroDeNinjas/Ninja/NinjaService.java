@@ -1,6 +1,5 @@
 package com.example.java10x.CadastroDeNinjas.Ninja;
 
-import jakarta.persistence.Id;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.*;
