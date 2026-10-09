@@ -48,8 +48,16 @@ public class NinjaController {
 
     //Alterar dados do ninja (UPDATE)
     @PutMapping("/attNinja/{id}")
-    public ResponseEntity<NinjaDTO> atualizarNinja(@PathVariable Long id, @RequestBody NinjaDTO ninja) {
-        return ResponseEntity.ok(ninjaService.atualizarNinja(id, ninja));
+    public ResponseEntity<?> atualizarNinja(@PathVariable Long id, @RequestBody NinjaDTO ninjaAtualizado) {
+       NinjaDTO ninja = ninjaService.atualizarNinja(id,ninjaAtualizado);
+       if (ninja != null) {
+           return ResponseEntity.ok(ninja);
+       }
+       else {
+           return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                   .body("O ninja com ID: "+ " não existe no banco de dados.");
+       }
+
     }
 
     //Deletar Ninja (DELETE)
